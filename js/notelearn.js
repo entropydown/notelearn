@@ -36,6 +36,6 @@ $('#answer-chooser button').click((event) => {
     displayedNote = pickNote();
     generateNote(context, clef, displayedNote, pickOctave());
   } else {
-    setAnswerConfirmation('Incorrect. Try again!');
+    setAnswerConfirmation('Incorrect. Try again?');
   }
 });
