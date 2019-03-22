@@ -1,0 +1,19 @@
+{
+  "name": "notelearn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "notelearn.js",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "npm": "^6.9.0",
+    "vexflow": "^1.2.89"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "browserify notelearn.js -o bundle.js",
+    "watch": "watchify notelearn.js -o bundle.js --debug --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
