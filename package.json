@@ -10,8 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "browserify notelearn.js -o bundle.js",
-    "watch": "watchify notelearn.js -o bundle.js --debug --verbose",
+    "build": "browserify js/notelearn.js -o bundle.js",
+    "watch": "watchify js/notelearn.js -o bundle.js --debug --verbose",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
