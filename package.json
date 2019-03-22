@@ -6,12 +6,14 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "npm": "^6.9.0",
-    "vexflow": "^1.2.89"
+    "vexflow": "^1.2.89",
+    "express": "^4.16.4"
   },
   "devDependencies": {},
   "scripts": {
     "build": "browserify js/notelearn.js -o bundle.js",
     "watch": "watchify js/notelearn.js -o bundle.js --debug --verbose",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
