@@ -15,16 +15,23 @@ const initializeStaff = () => {
 
 // Generates and displays the note on the staff.
 const generateNote = (context, clef, note, octave) => {
+  const numBeats = 1;
+  const beatValue = 4;
   const combined = `${note}/${octave}`;
   const stave = new VF.Stave(10, 40, 300);
-  stave.addClef('treble').addTimeSignature('1/4');
-  stave.setContext(context).draw();
+
+  context.clear();
+  stave
+    .addClef(clef)
+    .addTimeSignature(`${numBeats}/${beatValue}`)
+    .setContext(context)
+    .draw();
 
   const notes = [
-    new VF.StaveNote({clef: 'treble', keys: [combined], duration: 'q'}),
+    new VF.StaveNote({clef, keys: [combined], duration: 'q'}),
   ];
 
-  const voice = new VF.Voice({num_beats: 1, beat_value: 4});
+  const voice = new VF.Voice({num_beats: numBeats, beat_value: beatValue});
   voice.addTickables(notes);
 
   const formatter = new VF.Formatter().joinVoices([voice]).format([voice]);
@@ -33,13 +40,7 @@ const generateNote = (context, clef, note, octave) => {
   voice.draw(context, stave);
 };
 
-// Clears the latest note from the staff.
-const clearStaff = (context) => {
-  context.svg.removeChild(context.svg.lastChild);
-}
-
 module.exports = {
-  clearStaff,
   initializeStaff,
   generateNote,
 };

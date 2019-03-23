@@ -41,7 +41,10 @@
                        mdl-typography--display-1"
                 id="answer-confirmation">
               </div>
-              <div class="mdl-typography--text-center" id="answer-chooser">
+              <div
+                class="answer-chooser mdl-typography--text-center"
+                id="answer-chooser"
+              >
                 <button
                   class="mdl-button mdl-js-button mdl-button--fab
                          mdl-button--mini-fab mdl-js-ripple-effect
@@ -103,11 +106,48 @@
                 <script src="bundle.js"></script>
               </div>
             </div>
-            <div class="mdl-cell mdl-cell--3-col"></div>
+            <div class="mdl-cell mdl-cell--3-col">
+              <ul class="clef-list mdl-list" id="clef-selector">
+                <li class="clef-list-item mdl-list__item">
+                  <span class="mdl-list__item-primary-content">
+                    Treble
+                  </span>
+                  <span class="mdl-list__item-secondary-action">
+                    <label class="mdl-switch mdl-js-switch" for="treble">
+                      <input
+                        checked
+                        class="mdl-switch__input"
+                        type="checkbox"
+                        id="treble"
+                      >
+                      <span class="mdl-switch__label"></span>
+                    </label>
+                  </span>
+                </li>
+                <li class="clef-list-item mdl-list__item">
+                  <span class="mdl-list__item-primary-content">
+                    Bass
+                  </span>
+                  <span class="mdl-list__item-secondary-action">
+                    <label class="mdl-switch mdl-js-switch" for="bass">
+                      <input
+                        checked
+                        class="mdl-switch__input"
+                        type="checkbox"
+                        id="bass"
+                      >
+                      <span class="mdl-switch__label"></span>
+                    </label>
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
         <section class="mdl-layout__tab-panel" id="settings-tab">
-          <div class="page-content">Settings will go here</div>
+          <div class="page-content">
+            Settings will go here
+          </div>
         </section>
       </main>
     </div>
