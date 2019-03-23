@@ -1,5 +1,17 @@
+.answer-chooser {
+  padding-bottom: 8px;
+}
+
 .answer-confirmation {
   padding: 18px;
+}
+
+.clef-list {
+  width: 150px;
+}
+
+.clef-list-item {
+  padding: 8px;
 }
 
 .staff {
