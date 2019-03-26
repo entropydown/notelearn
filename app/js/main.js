@@ -1,9 +1,11 @@
 const $ = require('jquery');
 const notes = require('./notes');
 const vex = require('./vex');
+const tone = require('./tone');
 
 const { pickClef, pickNote, pickOctave } = notes;
 const { initializeStaff, generateNote } = vex;
+const { playNoteSound } = tone;
 
 const setAnswerConfirmation = (text) => {
   $('#answer-confirmation').text(text);
@@ -18,8 +20,10 @@ $(document).ready(() => {
   var availableClefs = [bassClef, trebleClef];
   var clef = pickClef(availableClefs);
   var note = pickNote();
+  var octave = pickOctave(clef);
 
-  generateNote(context, clef, note, pickOctave(clef));
+  generateNote(context, clef, note, octave);
+  playNoteSound(note, octave);
   setAnswerConfirmation(pickNoteMessage)
 
   $('#clef-selector input[type=checkbox]').change((event) => {
@@ -43,7 +47,9 @@ $(document).ready(() => {
   $('#generate').click((event) => {
     clef = pickClef(availableClefs);
     note = pickNote();
-    generateNote(context, clef, note, pickOctave(clef));
+    octave = pickOctave(clef);
+    generateNote(context, clef, note, octave);
+    playNoteSound(note, octave);
     setAnswerConfirmation(pickNoteMessage);
   });
 
@@ -55,7 +61,9 @@ $(document).ready(() => {
       setAnswerConfirmation('Correct! Try another:');
       clef = pickClef(availableClefs);
       note = pickNote();
-      generateNote(context, clef, note, pickOctave(clef));
+      octave = pickOctave(clef);
+      generateNote(context, clef, note, octave);
+      playNoteSound(note, octave);
     } else {
       setAnswerConfirmation('Incorrect. Try again?');
     }

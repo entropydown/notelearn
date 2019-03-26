@@ -4,15 +4,16 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
+    "express": "^4.16.4",
     "jquery": "^3.3.1",
     "npm": "^6.9.0",
-    "vexflow": "^1.2.89",
-    "express": "^4.16.4"
+    "tone": "^13.4.9",
+    "vexflow": "^1.2.89"
   },
   "devDependencies": {},
   "scripts": {
     "build": "browserify app/js/main.js -o app/bundle.js",
-    "watch": "watchify js/main.js -o bundle.js --debug --verbose",
+    "watch": "watchify app/js/main.js -o app/bundle.js --debug --verbose",
     "start": "node server.js",
     "clean": "rm app/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
