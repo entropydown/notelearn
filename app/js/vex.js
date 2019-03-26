@@ -14,7 +14,7 @@ const initializeStaff = () => {
 };
 
 // Generates and displays the note on the staff.
-const generateNote = (context, clef, note, octave) => {
+const generateNote = (context, clef, note, octave, key) => {
   const numBeats = 1;
   const beatValue = 4;
   const combined = `${note}/${octave}`;
@@ -25,6 +25,7 @@ const generateNote = (context, clef, note, octave) => {
     .addClef(clef)
     .addTimeSignature(`${numBeats}/${beatValue}`)
     .setContext(context)
+    .addKeySignature(key)
     .draw();
 
   const notes = [

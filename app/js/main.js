@@ -3,7 +3,7 @@ const notes = require('./notes');
 const vex = require('./vex');
 const tone = require('./tone');
 
-const { pickClef, pickNote, pickOctave } = notes;
+const { pickClef, pickNote, pickOctave, pickKeySignature, toVexKey } = notes;
 const { initializeStaff, generateNote } = vex;
 const { playNoteSound } = tone;
 
@@ -19,10 +19,11 @@ $(document).ready(() => {
   const context = initializeStaff();
   var availableClefs = [bassClef, trebleClef];
   var clef = pickClef(availableClefs);
-  var note = pickNote();
   var octave = pickOctave(clef);
+  var key = pickKeySignature();
+  var note = pickNote(key);
 
-  generateNote(context, clef, note, octave);
+  generateNote(context, clef, note, octave, toVexKey(key));
   playNoteSound(note, octave);
   setAnswerConfirmation(pickNoteMessage)
 
@@ -46,9 +47,10 @@ $(document).ready(() => {
   // Handles generating a new note for the staff
   $('#generate').click((event) => {
     clef = pickClef(availableClefs);
-    note = pickNote();
     octave = pickOctave(clef);
-    generateNote(context, clef, note, octave);
+    key = pickKeySignature();
+    note = pickNote(key);
+    generateNote(context, clef, note, octave, toVexKey(key));
     playNoteSound(note, octave);
     setAnswerConfirmation(pickNoteMessage);
   });
@@ -60,9 +62,10 @@ $(document).ready(() => {
     if (selectedAnswer === note) {
       setAnswerConfirmation('Correct! Try another:');
       clef = pickClef(availableClefs);
-      note = pickNote();
       octave = pickOctave(clef);
-      generateNote(context, clef, note, octave);
+      key = pickKeySignature();
+      note = pickNote(key);
+      generateNote(context, clef, note, octave, toVexKey(key));
       playNoteSound(note, octave);
     } else {
       setAnswerConfirmation('Incorrect. Try again?');
