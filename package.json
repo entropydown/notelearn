@@ -11,10 +11,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "browserify js/main.js -o bundle.js",
+    "build": "browserify app/js/main.js -o app/bundle.js",
     "watch": "watchify js/main.js -o bundle.js --debug --verbose",
     "start": "node server.js",
-    "clean": "rm bundle.js",
+    "clean": "rm app/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
